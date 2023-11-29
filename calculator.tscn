@@ -19,10 +19,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.5
-offset_top = -58.5
-offset_right = 74.5
-offset_bottom = -3.5
+offset_left = -79.5
+offset_top = -76.5
+offset_right = 17.5
+offset_bottom = -28.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "CALCULATE"
@@ -35,7 +35,6 @@ offset_top = 16.0
 offset_right = -19.0
 offset_bottom = 42.0
 grow_horizontal = 2
-text = "123456"
 autowrap_mode = 1
 
 [node name="Result" type="Label" parent="."]
@@ -46,70 +45,75 @@ offset_top = 40.0
 offset_right = -19.0
 offset_bottom = 66.0
 grow_horizontal = 2
-text = "123456"
 autowrap_mode = 1
 
-[node name="NumberButtons" type="Control" parent="."]
+[node name="CalculatorButtons" type="Control" parent="."]
 anchors_preset = 0
-offset_top = 184.0
-offset_right = 167.0
-offset_bottom = 321.0
+offset_top = 127.0
+offset_right = 163.0
+offset_bottom = 313.0
 script = ExtResource("2_hdta6")
-metadata/_edit_group_ = true
 
-[node name="ButtonRow1" type="HBoxContainer" parent="NumberButtons"]
+[node name="ButtonRow1" type="HBoxContainer" parent="CalculatorButtons"]
 layout_mode = 0
-offset_top = 8.0
+offset_top = 17.0
 offset_right = 161.0
-offset_bottom = 48.0
+offset_bottom = 57.0
 
-[node name="Button1" type="Button" parent="NumberButtons/ButtonRow1"]
+[node name="Button1" type="Button" parent="CalculatorButtons/ButtonRow1"]
 layout_mode = 2
 text = "    1    "
 
-[node name="Button2" type="Button" parent="NumberButtons/ButtonRow1"]
+[node name="Button2" type="Button" parent="CalculatorButtons/ButtonRow1"]
 layout_mode = 2
 text = "    2    "
 
-[node name="Button3" type="Button" parent="NumberButtons/ButtonRow1"]
+[node name="Button3" type="Button" parent="CalculatorButtons/ButtonRow1"]
 layout_mode = 2
 text = "    3    "
 
-[node name="ButtonRow3" type="HBoxContainer" parent="NumberButtons"]
+[node name="ButtonRow2" type="HBoxContainer" parent="CalculatorButtons"]
 layout_mode = 0
-offset_top = 94.0
+offset_top = 63.0
 offset_right = 161.0
-offset_bottom = 134.0
+offset_bottom = 103.0
 
-[node name="Button8" type="Button" parent="NumberButtons/ButtonRow3"]
-layout_mode = 2
-text = "    8    "
-
-[node name="Button9" type="Button" parent="NumberButtons/ButtonRow3"]
-layout_mode = 2
-text = "    9    "
-
-[node name="Button0" type="Button" parent="NumberButtons/ButtonRow3"]
-layout_mode = 2
-text = "    0    "
-
-[node name="ButtonRow2" type="HBoxContainer" parent="NumberButtons"]
-layout_mode = 0
-offset_top = 51.0
-offset_right = 161.0
-offset_bottom = 91.0
-
-[node name="Button4" type="Button" parent="NumberButtons/ButtonRow2"]
+[node name="Button4" type="Button" parent="CalculatorButtons/ButtonRow2"]
 layout_mode = 2
 text = "    4    "
 
-[node name="Button5" type="Button" parent="NumberButtons/ButtonRow2"]
+[node name="Button5" type="Button" parent="CalculatorButtons/ButtonRow2"]
 layout_mode = 2
 text = "    5    "
 
-[node name="Button6" type="Button" parent="NumberButtons/ButtonRow2"]
+[node name="Button6" type="Button" parent="CalculatorButtons/ButtonRow2"]
 layout_mode = 2
 text = "    6    "
+
+[node name="ButtonRow3" type="HBoxContainer" parent="CalculatorButtons"]
+layout_mode = 0
+offset_top = 108.0
+offset_right = 161.0
+offset_bottom = 148.0
+
+[node name="Button7" type="Button" parent="CalculatorButtons/ButtonRow3"]
+layout_mode = 2
+text = "    7    "
+
+[node name="Button8" type="Button" parent="CalculatorButtons/ButtonRow3"]
+layout_mode = 2
+text = "    8    "
+
+[node name="Button9" type="Button" parent="CalculatorButtons/ButtonRow3"]
+layout_mode = 2
+text = "    9    "
+
+[node name="Button0" type="Button" parent="CalculatorButtons"]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 160.0
+offset_bottom = 184.0
+text = "0"
 
 [node name="OperationButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -119,31 +123,49 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -59.0
-offset_top = -141.0
+offset_top = -213.0
 offset_right = -4.0
-offset_bottom = -5.0
+offset_bottom = -13.0
 grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_group_ = true
 
 [node name="AddButton" type="Button" parent="OperationButtons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "+"
 
 [node name="SubtractButton" type="Button" parent="OperationButtons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "-
 "
 
 [node name="MultiplyButton" type="Button" parent="OperationButtons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "*
 "
 
 [node name="DivideButton" type="Button" parent="OperationButtons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "/"
 
 [connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
-[connection signal="pressed" from="NumberButtons/ButtonRow1/Button1" to="NumberButtons" method="_on_button_pressed" binds= [1]]
-[connection signal="pressed" from="NumberButtons/ButtonRow1/Button2" to="NumberButtons" method="_on_button_pressed" binds= [2]]
+[connection signal="button_pressed" from="CalculatorButtons" to="." method="_on_number_buttons_button_pressed"]
+[connection signal="operation_pressed" from="CalculatorButtons" to="." method="_on_calculator_buttons_operation_pressed"]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow1/Button1" to="CalculatorButtons" method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow1/Button2" to="CalculatorButtons" method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow1/Button3" to="CalculatorButtons" method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow2/Button4" to="CalculatorButtons" method="_on_button_pressed" binds= [4]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow2/Button5" to="CalculatorButtons" method="_on_button_pressed" binds= [5]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow2/Button6" to="CalculatorButtons" method="_on_button_pressed" binds= [6]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow3/Button7" to="CalculatorButtons" method="_on_button_pressed" binds= [7]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow3/Button8" to="CalculatorButtons" method="_on_button_pressed" binds= [8]]
+[connection signal="pressed" from="CalculatorButtons/ButtonRow3/Button9" to="CalculatorButtons" method="_on_button_pressed" binds= [9]]
+[connection signal="pressed" from="CalculatorButtons/Button0" to="CalculatorButtons" method="_on_button_pressed" binds= [0]]
+[connection signal="pressed" from="OperationButtons/AddButton" to="CalculatorButtons" method="_on_operation_button_pressed" binds= ["addition"]]
+[connection signal="pressed" from="OperationButtons/SubtractButton" to="CalculatorButtons" method="_on_operation_button_pressed" binds= ["subtraction"]]
+[connection signal="pressed" from="OperationButtons/MultiplyButton" to="CalculatorButtons" method="_on_operation_button_pressed" binds= ["multiplication"]]
+[connection signal="pressed" from="OperationButtons/DivideButton" to="CalculatorButtons" method="_on_operation_button_pressed" binds= ["division"]]

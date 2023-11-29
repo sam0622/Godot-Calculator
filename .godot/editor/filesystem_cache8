@@ -1,0 +1,6 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1701262513
+calculator.gd::GDScript::-1::1701220935::0::1::::<>Control<>::
+calculator.tscn::PackedScene::6561134772370686872::1701220935::0::1::::<><>::res://calculator.gd<>res://NumberButtons.gd
+icon.svg::CompressedTexture2D::4150647926365285972::1701216387::1701262513::1::::<><>::
+NumberButtons.gd::GDScript::-1::1701220935::0::1::::<>Control<>::
