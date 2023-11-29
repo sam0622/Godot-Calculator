@@ -1,0 +1,149 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0qi6wmiarx25"]
+
+[ext_resource type="Script" path="res://calculator.gd" id="1_1nf3x"]
+[ext_resource type="Script" path="res://NumberButtons.gd" id="2_hdta6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1nf3x")
+
+[node name="CalculateButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -58.5
+offset_right = 74.5
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CALCULATE"
+
+[node name="Input" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "123456"
+autowrap_mode = 1
+
+[node name="Result" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 40.0
+offset_right = -19.0
+offset_bottom = 66.0
+grow_horizontal = 2
+text = "123456"
+autowrap_mode = 1
+
+[node name="NumberButtons" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 184.0
+offset_right = 167.0
+offset_bottom = 321.0
+script = ExtResource("2_hdta6")
+metadata/_edit_group_ = true
+
+[node name="ButtonRow1" type="HBoxContainer" parent="NumberButtons"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 161.0
+offset_bottom = 48.0
+
+[node name="Button1" type="Button" parent="NumberButtons/ButtonRow1"]
+layout_mode = 2
+text = "    1    "
+
+[node name="Button2" type="Button" parent="NumberButtons/ButtonRow1"]
+layout_mode = 2
+text = "    2    "
+
+[node name="Button3" type="Button" parent="NumberButtons/ButtonRow1"]
+layout_mode = 2
+text = "    3    "
+
+[node name="ButtonRow3" type="HBoxContainer" parent="NumberButtons"]
+layout_mode = 0
+offset_top = 94.0
+offset_right = 161.0
+offset_bottom = 134.0
+
+[node name="Button8" type="Button" parent="NumberButtons/ButtonRow3"]
+layout_mode = 2
+text = "    8    "
+
+[node name="Button9" type="Button" parent="NumberButtons/ButtonRow3"]
+layout_mode = 2
+text = "    9    "
+
+[node name="Button0" type="Button" parent="NumberButtons/ButtonRow3"]
+layout_mode = 2
+text = "    0    "
+
+[node name="ButtonRow2" type="HBoxContainer" parent="NumberButtons"]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 161.0
+offset_bottom = 91.0
+
+[node name="Button4" type="Button" parent="NumberButtons/ButtonRow2"]
+layout_mode = 2
+text = "    4    "
+
+[node name="Button5" type="Button" parent="NumberButtons/ButtonRow2"]
+layout_mode = 2
+text = "    5    "
+
+[node name="Button6" type="Button" parent="NumberButtons/ButtonRow2"]
+layout_mode = 2
+text = "    6    "
+
+[node name="OperationButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -141.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="AddButton" type="Button" parent="OperationButtons"]
+layout_mode = 2
+text = "+"
+
+[node name="SubtractButton" type="Button" parent="OperationButtons"]
+layout_mode = 2
+text = "-
+"
+
+[node name="MultiplyButton" type="Button" parent="OperationButtons"]
+layout_mode = 2
+text = "*
+"
+
+[node name="DivideButton" type="Button" parent="OperationButtons"]
+layout_mode = 2
+text = "/"
+
+[connection signal="pressed" from="CalculateButton" to="." method="_on_calculate_button_pressed"]
+[connection signal="pressed" from="NumberButtons/ButtonRow1/Button1" to="NumberButtons" method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="NumberButtons/ButtonRow1/Button2" to="NumberButtons" method="_on_button_pressed" binds= [2]]
