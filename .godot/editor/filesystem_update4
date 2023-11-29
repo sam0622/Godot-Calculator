@@ -1,4 +1,2 @@
-res://calculator.gd
 res://calculator.tscn
-res://NumberButtons.gd
-res://OperationButtons.gd
+res://calculator.gd

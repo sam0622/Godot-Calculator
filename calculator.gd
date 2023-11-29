@@ -14,7 +14,10 @@ func _on_calculate_button_pressed():# Preforms operations on inputs
 		result = input_1 * input_2
 	elif operation == "/":
 		result = float(input_1) / float(input_2)
-	$Result.text = str(result)
+	if operation == "/" and input_2 == 0:
+		get_tree().quit()
+	else:
+		$Result.text = str(result)
 	input_1 = null
 	input_2 = null
 	operation = null
