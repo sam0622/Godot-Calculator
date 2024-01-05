@@ -1,8 +1,8 @@
 extends Control
-var input_1 = null
-var input_2 = null
-var result = null
-var operation = null
+var input_1
+var input_2
+var result
+var operation
 
 
 func _on_calculate_button_pressed():# Preforms operations on inputs
