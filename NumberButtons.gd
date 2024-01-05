@@ -4,7 +4,7 @@ signal operation_pressed()
 
 func _on_button_pressed(number):# Handles number signals
 	print(number)
-	match number:
+	match number: # why the fuck did i write it like this
 		1:
 			button_pressed.emit(1)
 		2:
