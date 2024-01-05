@@ -4,31 +4,11 @@ signal operation_pressed()
 
 func _on_button_pressed(number):# Handles number signals
 	print(number)
-	match number: # why the fuck did i write it like this
-		1:
-			button_pressed.emit(1)
-		2:
-			button_pressed.emit(2)
-		3:
-			button_pressed.emit(3)
-		4:
-			button_pressed.emit(4)
-		5:
-			button_pressed.emit(5)
-		6:
-			button_pressed.emit(6)
-		7:
-			button_pressed.emit(7)
-		8:
-			button_pressed.emit(8)
-		9:
-			button_pressed.emit(9)
-		0: 
-			button_pressed.emit(0)
+	button_pressed.emit(number)
 
 
 func _on_operation_button_pressed(operation):# Handles operation signals
-	match operation:
+	match operation:# i could make this one line but i aint changing args
 		"addition":
 			operation_pressed.emit("+")
 		"subtraction":
